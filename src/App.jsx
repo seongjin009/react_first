@@ -7,6 +7,8 @@ import Header from './components/Header';
 //리엑트는 원본이 있어야 본ㄱ사본을 통해서 차이점을 비교분석
 //리엑트안에서 배열이나, 객체같은 참조형 자료는 무조건 deep copy를 해서 데이터를 변경해야됨
 
+//전개연산자 (Spread Operator) heap 메모리에 있는 값을 물리적으로 꺼내서 전개
+//전개연산자를 이용하면 원본을 훼손시키지 않으면 참조형 자료를 deep copy가능
 function App() {
 	let isPop = true;
 
