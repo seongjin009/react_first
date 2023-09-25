@@ -2,6 +2,11 @@ import './style.scss';
 import Popup from './components/popUp';
 import List from './components/list';
 import Header from './components/Header';
+
+//리엑트 개발 시 불변성이 중요한 이유
+//리엑트는 원본이 있어야 본ㄱ사본을 통해서 차이점을 비교분석
+//리엑트안에서 배열이나, 객체같은 참조형 자료는 무조건 deep copy를 해서 데이터를 변경해야됨
+
 function App() {
 	let isPop = true;
 
