@@ -1,7 +1,9 @@
-article {
-	width: 100px;
-	height: 100px;
-	background-color: aqua;
-	margin: 100px;
-	transition: 0.5s;
+button {
+	border: none;
+	display: inline-block;
+	padding: 6px 20px;
+	margin: 10px;
+	border-radius: 4px;
+	background-color: gray;
+	color: #fff;
 }

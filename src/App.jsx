@@ -12,7 +12,9 @@ import './style.scss';
 import { useState } from 'react';
 
 function App() {
-	const [Degree, setDegree] = useState(0);
+	const [colors, setColors] = useState(['red', 'green', 'blue']);
+	const newColors = [...colors];
+	newColors[0] = 'hotpink';
 
 	//const [상태값,상태변경전용함수] = useState(초기값);
 	//리엑트 컴포넌트는 State값이 state변경함수로 변경되어야지만 컴포넌트가 재랜더링됨
@@ -22,9 +24,12 @@ function App() {
 
 	return (
 		<>
-			<button onClick={() => setDegree(Degree - 45)}>왼쪽으로 회전</button>
-			<button onClick={() => setDegree(Degree + 45)}>오른쪽으로 회전</button>
-			<article style={{ transform: `rotate(${Degree}deg)` }}>{Degree}</article>
+			{colors.map((color, idx) => (
+				<button style={{ background: color }} key={idx}>
+					{color}
+				</button>
+			))}
+			<button onClick={() => setColors(newColors)}>색상변경</button>
 		</>
 	);
 }
