@@ -1,14 +1,12 @@
-import React from 'react';
-
+//rfce
 function Header() {
 	const handler = (text) => {
 		console.log(text);
 	};
-
 	return (
 		<header>
-			<h1 className='title'>logo</h1>
-			<p onClick={handler}>링크</p>
+			<h1 className='title'>Logo</h1>
+			<p onClick={() => handler('hello')}>링크</p>
 		</header>
 	);
 }

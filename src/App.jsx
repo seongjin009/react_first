@@ -2,7 +2,6 @@ import './style.scss';
 import Popup from './components/popUp';
 import List from './components/list';
 import Header from './components/Header';
-
 function App() {
 	let isPop = true;
 

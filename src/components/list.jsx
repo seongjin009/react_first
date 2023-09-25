@@ -3,11 +3,11 @@ function List() {
 
 	return (
 		<ul>
-			{colors.map((color, idx) => {
+			{colors.map((color, idx) => (
 				<li key={idx} style={{ color: color }}>
 					{color}
-				</li>;
-			})}
+				</li>
+			))}
 		</ul>
 	);
 }
