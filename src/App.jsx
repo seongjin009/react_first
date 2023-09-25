@@ -9,7 +9,17 @@ import Header from './components/Header';
 
 //전개연산자 (Spread Operator) heap 메모리에 있는 값을 물리적으로 꺼내서 전개
 //전개연산자를 이용하면 원본을 훼손시키지 않으면 참조형 자료를 deep copy가능
+//배열1
+//배열 2 = [...배열1]
 function App() {
+	let student = {
+		name: 'seongjin',
+		age: 19,
+	};
+	let newStudent = { ...student };
+	newStudent.name = 'Andy';
+	console.log(newStudent);
+	console.log(student);
 	let isPop = true;
 
 	return (
