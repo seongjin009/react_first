@@ -1,7 +1,4 @@
 import './style.scss';
-import Popup from './components/popUp';
-import List from './components/list';
-import Header from './components/Header';
 
 //리엑트 개발 시 불변성이 중요한 이유
 //리엑트는 원본이 있어야 본ㄱ사본을 통해서 차이점을 비교분석
@@ -11,22 +8,21 @@ import Header from './components/Header';
 //전개연산자를 이용하면 원본을 훼손시키지 않으면 참조형 자료를 deep copy가능
 //배열1
 //배열 2 = [...배열1]
-function App() {
-	let student = {
-		name: 'seongjin',
-		age: 19,
-	};
-	let newStudent = { ...student };
-	newStudent.name = 'Andy';
-	console.log(newStudent);
-	console.log(student);
-	let isPop = true;
 
+import { useState } from 'react';
+
+function App() {
+	//const [상태값,상태변경전용함수] = useState(초기값);
+	//리엑트 컴포넌트는 State값이 state변경함수로 변경되어야지만 컴포넌트가 재랜더링됨
+	//숫자를 증가, 감소 시킬 때 전위증감 연산자를 꺼야지만 해당 랜더링 사이클에서 바로 값이 변경되면서 다음번 랜더링에 반영됨
+	//State에 담기는 값이 바뀔때에만 화면의 갱신이 일어나기 때문에
+	//State에 담기는 데이터만 관리하면 되므로 유지보수가 편함
+	let [Num, setNum] = useState(0);
 	return (
 		<>
-			<Header />
-			{isPop ? <Popup /> : null}
-			<List />
+			<h1>{Num}</h1>
+			<button onClick={() => setNum(--Num)}>minus</button>
+			<button onClick={() => setNum(++Num)}>plus</button>
 		</>
 	);
 }
@@ -78,6 +74,8 @@ useRef - 컴포넌트 안쪽에서 특정 값을 참조객체에 담을 때
 리엑트의 성능관리를 hook
 리엑트에서의 memorization - 메모리점유율을 늘려서 성능을 개선
 자바스크립트는 기본적으로 Garbage collector에 의해서 메모리가 관리됨
+아래의 hook을 통해서 특정 값을 강제 메모이제이션 처리하면 가비지컬렉터에서 제외함
+
 
 memo : (컴포넌트 자체를 메모이제이션)
 useCallback : (컴포넌트 안쪽의 핸들러 함수 자체를 메모이제이션)
