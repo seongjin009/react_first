@@ -1,4 +1,3 @@
-import Popup from './components/Popup';
 import './style.scss';
 import { useState } from 'react';
 
@@ -18,16 +17,28 @@ function App() {
 	//State에 담기는 값이 바뀔때에만 화면의 갱신이 일어나기 때문에
 	//State에 담기는 데이터만 관리하면 되므로 유지보수가 편함
 
-	const [open, setopen] = useState(false);
+	const [Num, setNum] = useState(0);
 
 	return (
 		<>
-			<button onClick={() => setopen(true)}>팝업 열기</button>
-			<button onClick={() => setopen(false)}>팝업 닫기</button>
-			{open && <Popup />}
+			<button onClick={() => setNum(Num - 1)}>prev</button>
+			<button onClick={() => setNum(Num + 1)}>next</button>
+			<article style={{ transform: `rotate(${45 * Num}deg)` }}></article>
 		</>
 	);
 }
+
+/*
+state: 해당 값이 변경되면 무조건 컴포넌트 재랜더링됨, 이전랜더링 사이클의 값이 유지됨
+변수: 컴포넌트 안에 값을 만듬, 컴포넌트가 재랜더링 될 때마다 값이 계속 초기화 됨
+useRef: useRef를 통해서 참조객체를 만들고 해당 참조객체에 저장되어 있는 값은 컴포넌트가 재랜더링 되더라도 값이 유지됨
+단, useRef의 값이 변경이 되더라도 컴포넌트가 재ㄹ랜더링되지는 않음
+
+useRef 실사용 사례
+-모션작업을 할 때 특정 ㅌ스타일이 변경되더라도 컴포넌트를 불팔요하게 재호추랗고 싶지 않을때
+useRef실사용 사례2
+-가상돔요소를 실제적으로 선택해서 가져와야 할 때
+*/
 
 export default App;
 /*

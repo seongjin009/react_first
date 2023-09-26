@@ -12,6 +12,7 @@ function Popup() {
 	useEffect(() => {
 		//컴포넌트 mount시 한번만 실행
 		console.log('팝업생성');
+		console.log('무거운 데이터 호출');
 
 		return () => {
 			//컴포넌트가 umount시 한번만 실행
