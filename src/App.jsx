@@ -1,5 +1,5 @@
 import './style.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 //리엑트 개발 시 불변성이 중요한 이유
 //리엑트는 원본이 있어야 본ㄱ사본을 통해서 차이점을 비교분석
@@ -16,14 +16,20 @@ function App() {
 	//숫자를 증가, 감소 시킬 때 전위증감 연산자를 꺼야지만 해당 랜더링 사이클에서 바로 값이 변경되면서 다음번 랜더링에 반영됨
 	//State에 담기는 값이 바뀔때에만 화면의 갱신이 일어나기 때문에
 	//State에 담기는 데이터만 관리하면 되므로 유지보수가 편함
-
-	const [Num, setNum] = useState(0);
+	let box = useRef(null);
+	let Num = useRef(0);
+	const prev = () => {
+		box.current.style.transform = `rotate(${--Num.current * 45}deg)`;
+	};
+	const next = () => {
+		box.current.style.transform = `rotate(${++Num.current * 45}deg)`;
+	};
 
 	return (
 		<>
-			<button onClick={() => setNum(Num - 1)}>prev</button>
-			<button onClick={() => setNum(Num + 1)}>next</button>
-			<article style={{ transform: `rotate(${45 * Num}deg)` }}></article>
+			<button onClick={prev}>prev</button>
+			<button onClick={next}>next</button>
+			<article ref={box}></article>
 		</>
 	);
 }
