@@ -7,3 +7,13 @@ button {
 	background-color: gray;
 	color: #fff;
 }
+
+aside {
+	width: 600px;
+	height: 300px;
+	background-color: #333;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
